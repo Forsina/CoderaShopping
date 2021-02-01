@@ -1,0 +1,146 @@
+﻿<div class="container">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Manage <b>Users</b></h2>
+                    </div>
+                    <div class="col-md-6">
+                        <!--<div class="form-group">
+                            <select class="form-control">
+                                <option value="" disabled selected>Filter by Status</option>
+                                <option ng-click="saveChosenStatus()">Active</option>
+                                <option>Inactive</option>
+                                <option>Disabled</option>
+                                <option>Locked</option>
+                            </select>
+                        </div>-->
+                        <!--Back End Search-->
+                        <label><input type="text" ng-model="search" placeholder="Search by Name" ng-change="change(search)" class="form-control" /></label>
+                        <!--<label><input type="text" ng-model="search" placeholder="Search by Status" ng-change="change(search)" class="form-control" /></label>-->
+                        <!--Front End Search-->
+                        <!--<label><input class="form-control" placeholder="Search by Status" ng-model="search.Status"></label>-->
+                        <!--<label><input class="form-control" placeholder="FE-Search by Name" ng-model="search.FullName"></label>-->
+                    </div>
+
+                    <!--<div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" id="txtSearch" />
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="col-md-3">
+                        <a class="btn btn-success" data-toggle="modal" ng-click="openAddModal()"><i class="glyphicon glyphicon-pencil"></i> <span>Add New User</span></a>
+                        <!--<a class="btn btn-danger" data-toggle="modal"><i class="glyphicon glyphicon-trash"></i> <span>Delete</span></a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover" id="searchObjResults">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value='' ng-model='checkall'>
+                            <label></label>
+                        </span>
+                    </th>
+                    <th>Full Name</th>
+                    <th>City</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Member Since</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataModel in allUsers | filter:search:strict">
+                    <!--| filter : 'active'-->
+                    <td>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" ng-checked="checkall">
+                            <label></label>
+                        </span>
+
+                    </td>
+                    <td>{{dataModel.FullName}}</td>
+                    <td>{{dataModel.City}}</td>
+                    <td>{{dataModel.ContactNumber}}</td>
+                    <td>{{dataModel.Email}}</td>
+                    <td>{{dataModel.UserStatus | enumStatus}}</td>
+                    <td>{{dataModel.MemberSince}}</td>
+                    <td>
+                        <a class="edit" data-toggle="modal"><i class="glyphicon glyphicon-pencil" data-toggle="tooltip" uib-tooltip="Edit" tooltip-popup-delay='1000' ng-click="openEditModal(dataModel.UserId)"></i></a>
+                        <a class="delete" data-toggle="modal"><i class="glyphicon glyphicon-trash" data-toggle="tooltip" uib-tooltip="Delete" tooltip-popup-delay='1000' ng-click="openDeleteModal(dataModel.UserId)"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--<ul boundary-link-numbers="true"
+            class="pagination-sm"
+            ng-model="currentPage"
+            total-items="usersLenght"
+            ng-change="changePage()"
+            items-per-page="maxSize"
+            uib-pagination>
+        </ul>-->
+        <!--View
+        <select ng-model="viewby" ng-change="paginateUsers(viewby)">
+            <option>3</option>
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+        </select>
+        records at a time.-->
+
+        <div class="clearfix">
+            <div class="hint-text">Showing <b>{{allUsers.length}}</b> out of <b>{{usersLenght}}</b> entries</div>
+            <ul boundary-link-numbers="true"
+                class="pagination-sm"
+                ng-model="currentPage"
+                total-items="usersLenght"
+                ng-change="changePage()"
+                items-per-page="maxSize"
+                uib-pagination>
+            </ul>
+        </div>
+
+        <!--<div ng-controller="OtherController" class="other-controller">
+            <div class="text-center">
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/common/commonPaginator/common-pagination.html"></dir-pagination-controls>
+            </div>
+        </div>-->
+        <!--<div class="clearfix">
+            <div class="hint-text">Showing <b>5</b> out of <b>{{allUsers.length}}</b> entries</div>
+            <ul class="pagination">
+                <li class="page-item disabled"><a href="#">Previous</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+            </ul>
+        </div>-->
+        <!--<div ui-view></div>
+        @await Html.PartialAsync("~/commonPaginator/common-paginator.html")
+        @Html.PartialViewExample()
+        @RenderPage("~/commonPaginator/common-paginator.html")-->
+
+    </div>
+</div>
