@@ -12,7 +12,7 @@ namespace CoderaShopping.DataNHibernate
         {
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
-                    .ConnectionString(@"Data Source=DESKTOP-2B1LV0O\SQLEXPRESS;Initial Catalog=CoderaShoping;Integrated Security=SSPI")
+                    .ConnectionString(@"Data Source=localhost;Initial Catalog=CoderaShopping;Integrated Security=SSPI")
                     .ShowSql())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>())
 

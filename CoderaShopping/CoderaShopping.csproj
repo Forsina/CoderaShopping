@@ -170,17 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\common\commonDelete\common-delete-controller.js" />
-    <Content Include="app\common\commonDelete\common-delete.html" />
-    <Content Include="app\common\commonPaginator\common-pagination-controller.js" />
-    <Content Include="app\common\commonPaginator\common-pagination-service.js" />
-    <Content Include="app\common\commonPaginator\common-pagination.html" />
     <Content Include="app\routes.js" />
-    <Content Include="app\users\add-edit-user-controller.js" />
-    <Content Include="app\users\add-edit-user.html" />
-    <Content Include="app\users\user-controller.js" />
-    <Content Include="app\users\user-service.js" />
-    <Content Include="app\users\user-view.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
@@ -208,9 +198,6 @@
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-messages.min.js.map" />
-    <Content Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
