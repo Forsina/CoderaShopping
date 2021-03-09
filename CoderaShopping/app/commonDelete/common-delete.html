@@ -1,0 +1,18 @@
+﻿<div id="deleteEmployeeModal" class="modal-demo">
+	<div class="modal-content">
+		<form>
+			<div class="modal-header">
+				<h4 class="modal-title">Warning!</h4>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete these Records?</p>
+				<p class="text-warning"><small>This action can not be undone!</small></p>
+			</div>
+			<div class="modal-footer">
+				<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" ng-click="dismiss()">
+				<!--<button type="button" class="btn btn-default" value="Cancel" ng-click="dismiss()"></button>-->
+				<input type="submit" class="btn btn-danger" value="Delete" ng-click="delete()">
+			</div>
+		</form>
+	</div>
+</div>
